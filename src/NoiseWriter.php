@@ -6,7 +6,7 @@ class NoiseWriter
     /**
      * Scales 0.0 - 1.0 (noise range) to 0 - 255 (byte)
      */
-    private static function noiseValueToByte($f)
+    public static function noiseValueToByte($f)
     {
         if ($f == 1.0)
             return 255;
