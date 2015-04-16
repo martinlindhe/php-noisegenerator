@@ -8,8 +8,12 @@ class NoiseWriter
      */
     public static function noiseValueToByte($f)
     {
-        if ($f == 1.0)
+        if ($f <= 0.0) {
+            return 0;
+        }
+        if ($f >= 1.0) {
             return 255;
+        }
 
         return (int) ($f * 256.0);
     }

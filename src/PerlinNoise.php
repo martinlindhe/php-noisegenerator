@@ -7,7 +7,11 @@ namespace NoiseGenerator;
  */
 class PerlinNoise
 {
-    var $p, $permutation, $seed;
+    var $p;
+    var $permutation;
+
+    /** @var int */
+    var $seed;
 
     function __construct($seed = null)
     {
@@ -35,7 +39,7 @@ class PerlinNoise
 
         //And set the seed
         if ($seed === null) {
-            $this->seed = time();
+            $this->seed = microtime(true) * 10000;
         } else {
             $this->seed = $seed;
         }
@@ -107,7 +111,7 @@ class PerlinNoise
 
     function lerp($t, $a, $b)
     {
-        //Make a weighted interpolaton between points
+        //Make a weighted interpolation between points
         return $a + $t * ($b - $a);
     }
 
